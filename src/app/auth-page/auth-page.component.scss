@@ -1,0 +1,22 @@
+@use '../../styles.scss' as styles;
+
+mat-card {
+    width: 50%;
+    height: calc(100vh - 2 * styles.$main-padding);
+    margin: auto;
+    justify-content: center;
+}
+
+mat-card-header {
+    justify-content: center;
+}
+
+mat-card-content mat-form-field {
+    width: 100%;
+}
+
+mat-card-footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}

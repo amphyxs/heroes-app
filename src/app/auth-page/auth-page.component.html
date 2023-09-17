@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-header>
+        <h1>Login</h1>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="accountForm">
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input id="username" matInput formControlName="username">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input id="password" matInput type="password" formControlName="password">
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-footer>
+        <button mat-flat-button color="primary" (click)="loginOrRegister()">
+            Login
+        </button>
+        <button mat-button (click)="loginOrRegister(true)">Register</button>
+    </mat-card-footer>
+</mat-card>
