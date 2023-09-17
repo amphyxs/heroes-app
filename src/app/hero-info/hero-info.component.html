@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>{{ data.name }}</h1>
+    <h2>Powerstats</h2>
+    <table mat-table [dataSource]="heroTable.powerstatsTable">
+        <mat-text-column name="key"></mat-text-column>
+        <mat-text-column name="value"></mat-text-column>
+        
+        <tr mat-row *matRowDef="let row; columns: ['key', 'value'];"></tr>
+    </table>
+    <h2>Biography</h2>
+    <table mat-table [dataSource]="heroTable.biographyTable">
+        <mat-text-column name="key"></mat-text-column>
+        <mat-text-column name="value"></mat-text-column>
+
+        <tr mat-row *matRowDef="let row; columns: ['key', 'value'];"></tr>
+    </table>
+    <h2>Appearance</h2>
+    <table mat-table [dataSource]="heroTable.appearanceTable">
+        <mat-text-column name="key"></mat-text-column>
+        <mat-text-column name="value"></mat-text-column>
+
+        <tr mat-row *matRowDef="let row; columns: ['key', 'value'];"></tr>
+    </table>
+</div>
