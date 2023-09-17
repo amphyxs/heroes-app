@@ -1,1 +1,16 @@
-<p>home-page works!</p>
+<div class="heroes-list">
+    <mat-card *ngFor="let hero of heroes | async">
+        <mat-card-header>
+            <img src={{hero.image.url}}/>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{hero.name}}</p>
+        </mat-card-content>
+        <span class="spacer"></span>
+        <mat-card-footer>
+            <button mat-icon-button>
+                <mat-icon>info</mat-icon>
+            </button>
+        </mat-card-footer>
+    </mat-card>
+</div>

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { type Hero, HeroesApiService } from '../heroes-api.service';
+import { type Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
+  heroes: Observable<Hero[]> = this.heroesApiService.getHeroesList();
 
+  constructor (
+    @Inject(HeroesApiService) private readonly heroesApiService: HeroesApiService
+  ) { }
 }
