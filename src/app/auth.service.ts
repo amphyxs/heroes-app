@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 
-interface AccountCredentials {
+export interface AccountCredentials {
   username: string
   password: string
+};
+
+export interface User {
+  username: string
 };
 
 @Injectable({
@@ -10,11 +14,10 @@ interface AccountCredentials {
 })
 export class AuthService {
   private _registeredAccounts: AccountCredentials[] | null = null;
+  private _currentUser: User | null = null;
 
   isAuthenticated (): boolean {
-    const currentUsername = localStorage.getItem('currentUsername');
-
-    return currentUsername != null;
+    return this.currentUser !== null;
   }
 
   public get registeredAccounts (): AccountCredentials[] {
@@ -41,8 +44,7 @@ export class AuthService {
       return false;
     }
 
-    localStorage.setItem('currentUsername', credentials.username);
-    localStorage.setItem('currentPassword', credentials.password);
+    this.currentUser = { username: credentials.username };
 
     return true;
   }
@@ -55,5 +57,32 @@ export class AuthService {
     this.registeredAccounts = [...this.registeredAccounts, credentials];
 
     return true;
+  }
+
+  public get currentUser (): User | null {
+    if (this._currentUser === null) {
+      const currentUsername = localStorage.getItem('currentUsername');
+      if (currentUsername === null) {
+        this._currentUser = null;
+      } else {
+        this._currentUser = { username: currentUsername };
+      }
+    }
+
+    return this._currentUser;
+  }
+
+  public set currentUser (user: User | null) {
+    if (user !== null) {
+      localStorage.setItem('currentUsername', user.username);
+    } else {
+      localStorage.removeItem('currentUsername');
+    }
+
+    this._currentUser = user;
+  }
+
+  logout (): void {
+    this.currentUser = null;
   }
 }

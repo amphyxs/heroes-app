@@ -4,6 +4,7 @@ mat-card {
     width: 50%;
     height: calc(100vh - 2 * styles.$main-padding);
     margin: auto;
+    margin-top: styles.$main-padding;
     justify-content: center;
 }
 

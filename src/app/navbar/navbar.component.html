@@ -1,0 +1,19 @@
+<nav>
+    <mat-toolbar>
+        <span>Heroes App</span>
+        <span class="spacer"></span>
+        <span class="tools-section">
+            <span class="search-section">
+                <mat-form-field>
+                    <input matInput placeholder="Search">
+                </mat-form-field>
+            </span>
+            <span class="account-section">
+                <p>{{ user?.username }}</p>
+                <button mat-icon-button (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                </button>
+            </span>
+        </span>
+    </mat-toolbar>
+</nav>
