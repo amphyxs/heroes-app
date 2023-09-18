@@ -1,4 +1,26 @@
-<div class="heroes-list">
+<nav>
+    <mat-toolbar>
+        <span>Heroes App</span>
+        <span class="spacer"></span>
+        <span class="tools-section">
+            <span class="search-section">
+                <mat-form-field>
+                    <input id="search-field" matInput placeholder="Search">
+                    <button matSuffix mat-icon-button aria-label="Search" (click)="search()">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </mat-form-field>
+            </span>
+            <span class="account-section">
+                <p>{{ user?.username }}</p>
+                <button mat-icon-button (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                </button>
+            </span>
+        </span>
+    </mat-toolbar>
+</nav>
+<main class="heroes-list">
     <mat-card *ngFor="let hero of heroes | async">
         <mat-card-header>
             <img src={{hero.image.url}}/>
@@ -13,4 +35,4 @@
             </button>
         </mat-card-footer>
     </mat-card>
-</div>
+</main>

@@ -1,3 +1,9 @@
+@use '../../styles.scss' as styles;
+
+main {
+    padding: styles.$main-padding;
+}
+
 .heroes-list mat-card {
     display: flex;
     flex-direction: row;
@@ -17,6 +23,29 @@
 .heroes-list mat-card-header img {
     width: 60px;
     border-radius: 100px;
+}
+
+nav .spacer {
+    flex: 1 1 auto;
+}
+
+nav .tools-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav .search-section mat-form-field {
+    margin-bottom: -1.25em;
+}
+
+nav .account-section {
+    display: flex;
+    align-items: center;
+}
+
+nav .account-section p {
+    margin: 0;
 }
 
 hero-info-component {

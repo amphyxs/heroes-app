@@ -1,4 +1,4 @@
-import { Component, Inject, type OnDestroy, type OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './auth-page.component.html',
   styleUrls: ['./auth-page.component.scss']
 })
-export class AuthPageComponent implements OnInit, OnDestroy {
+export class AuthPageComponent {
   accountForm = this.formBuilder.group({
     username: '',
     password: ''
@@ -19,16 +19,6 @@ export class AuthPageComponent implements OnInit, OnDestroy {
     @Inject(AuthService) private readonly authService: AuthService,
     @Inject(Router) private readonly router: Router
   ) { }
-
-  ngOnInit (): void {
-    const navElement = document.getElementsByTagName('nav')[0];
-    navElement.style.display = 'none';
-  }
-
-  ngOnDestroy (): void {
-    const navElement = document.getElementsByTagName('nav')[0];
-    navElement.style.display = 'block';
-  }
 
   loginOrRegister (register: boolean = false): void {
     const formValue = this.accountForm.value;

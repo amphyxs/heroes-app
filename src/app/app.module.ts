@@ -14,7 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { HomePageComponent } from './home-page/home-page.component'
 import { ReactiveFormsModule } from '@angular/forms';
-import { NavbarComponent } from './navbar/navbar.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HeroInfoComponent } from './hero-info/hero-info.component';
 import { MatTableModule } from '@angular/material/table';
@@ -24,7 +23,6 @@ import { MatTableModule } from '@angular/material/table';
     AppComponent,
     AuthPageComponent,
     HomePageComponent,
-    NavbarComponent,
     HeroInfoComponent
   ],
   imports: [
