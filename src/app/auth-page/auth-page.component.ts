@@ -40,6 +40,9 @@ export class AuthPageComponent {
       : this.authService.loginIntoAccount(credentials);
 
     if (isAuthenticated) {
+      if (register) {
+        this.authService.loginIntoAccount(credentials);
+      }
       void this.router.navigate(['']);
     } else if (register) {
       alert('Account with this username already exists');
