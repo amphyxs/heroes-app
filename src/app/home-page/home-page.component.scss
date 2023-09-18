@@ -1,4 +1,8 @@
 @use '../../styles.scss' as styles;
+@use '@angular/material' as mat;
+
+$theme-accent: mat.define-palette(mat.$pink-palette);
+$theme-bg: mat.define-palette(mat.$grey-palette);
 
 main {
     padding: styles.$main-padding;
@@ -35,8 +39,23 @@ nav .tools-section {
     gap: 20px;
 }
 
-nav .search-section mat-form-field {
-    margin-bottom: -1.25em;
+.search-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.search-box input {
+    height: 30px;
+    border-radius: 100px;
+    background-color: mat.get-color-from-palette($theme-bg, 800);
+    color: #fff;
+    border: none;
+    padding-left: 10px;
+}
+
+.search-box input::placeholder {
+    color: #6f6f6f;
 }
 
 nav .account-section {

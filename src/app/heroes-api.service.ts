@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { type Observable, mergeMap, range, scan, filter } from 'rxjs';
+import { type Observable, mergeMap, range, scan, filter, map } from 'rxjs';
 
 export interface HeroImage {
   url: string
@@ -29,13 +29,14 @@ export class HeroesApiService {
     @Inject(HttpClient) private readonly http: HttpClient
   ) { }
 
-  getHeroesList (searchTerm?: string): Observable<Hero[]> {
+  getHeroesList (pageSize: number, pageIndex: number, searchTerm?: string): Observable<Hero[]> {
     return (
       range(1, this.heroMaxId)
         .pipe(
           mergeMap((id: number) => this.getHeroById(id)),
-          filter((hero: Hero) => this.checkSearchTerm(hero, searchTerm)),
-          scan((heroes: Hero[], hero: Hero, index: number) => [...heroes, hero], [])
+          filter((hero) => this.checkSearchTerm(hero, searchTerm)),
+          scan((heroes: Hero[], hero: Hero, index: number) => [...heroes, hero], []),
+          map((heroes: Hero[]) => heroes.sort((a, b) => a.id - b.id))
         )
     );
   }

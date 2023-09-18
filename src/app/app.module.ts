@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HeroInfoComponent } from './hero-info/hero-info.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     HttpClientModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
